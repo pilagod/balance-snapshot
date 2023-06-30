@@ -44,9 +44,7 @@ library BalanceSnapshotLib {
         require(
             diff == change,
             string.concat(
-                Strings.toString(diff),
-                "!=",
-                Strings.toString(change)
+                Strings.toString(diff), "!=", Strings.toString(change)
             )
         );
     }
@@ -63,9 +61,7 @@ library BalanceSnapshotLib {
         require(
             diff > change,
             string.concat(
-                Strings.toString(diff),
-                "<=",
-                Strings.toString(change)
+                Strings.toString(diff), "<=", Strings.toString(change)
             )
         );
     }
@@ -97,9 +93,7 @@ library BalanceSnapshotLib {
         require(
             diff == change,
             string.concat(
-                Strings.toString(diff),
-                "!=",
-                Strings.toString(change)
+                Strings.toString(diff), "!=", Strings.toString(change)
             )
         );
     }
@@ -116,9 +110,7 @@ library BalanceSnapshotLib {
         require(
             diff > change,
             string.concat(
-                Strings.toString(diff),
-                "<=",
-                Strings.toString(change)
+                Strings.toString(diff), "<=", Strings.toString(change)
             )
         );
     }
@@ -135,9 +127,7 @@ library BalanceSnapshotLib {
         require(
             diff < change,
             string.concat(
-                Strings.toString(diff),
-                ">=",
-                Strings.toString(change)
+                Strings.toString(diff), ">=", Strings.toString(change)
             )
         );
     }
@@ -147,9 +137,9 @@ library BalanceSnapshotLib {
         address[] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -162,9 +152,9 @@ library BalanceSnapshotLib {
         address[1] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -177,9 +167,9 @@ library BalanceSnapshotLib {
         address[2] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -192,9 +182,9 @@ library BalanceSnapshotLib {
         address[3] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -207,9 +197,9 @@ library BalanceSnapshotLib {
         address[4] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -222,9 +212,9 @@ library BalanceSnapshotLib {
         address[5] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -237,9 +227,9 @@ library BalanceSnapshotLib {
         address[6] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -252,9 +242,9 @@ library BalanceSnapshotLib {
         address[7] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -267,9 +257,9 @@ library BalanceSnapshotLib {
         address[8] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -282,9 +272,9 @@ library BalanceSnapshotLib {
         address[1] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -297,9 +287,9 @@ library BalanceSnapshotLib {
         address[2] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -312,9 +302,9 @@ library BalanceSnapshotLib {
         address[3] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -327,9 +317,9 @@ library BalanceSnapshotLib {
         address[4] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -342,9 +332,9 @@ library BalanceSnapshotLib {
         address[5] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -357,9 +347,9 @@ library BalanceSnapshotLib {
         address[6] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -372,9 +362,9 @@ library BalanceSnapshotLib {
         address[7] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -387,9 +377,9 @@ library BalanceSnapshotLib {
         address[8] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -402,9 +392,9 @@ library BalanceSnapshotLib {
         address[1] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -417,9 +407,9 @@ library BalanceSnapshotLib {
         address[2] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -432,9 +422,9 @@ library BalanceSnapshotLib {
         address[3] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -447,9 +437,9 @@ library BalanceSnapshotLib {
         address[4] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -462,9 +452,9 @@ library BalanceSnapshotLib {
         address[5] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -477,9 +467,9 @@ library BalanceSnapshotLib {
         address[6] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -492,9 +482,9 @@ library BalanceSnapshotLib {
         address[7] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -507,9 +497,9 @@ library BalanceSnapshotLib {
         address[8] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -522,9 +512,9 @@ library BalanceSnapshotLib {
         address[1] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -537,9 +527,9 @@ library BalanceSnapshotLib {
         address[2] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -552,9 +542,9 @@ library BalanceSnapshotLib {
         address[3] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -567,9 +557,9 @@ library BalanceSnapshotLib {
         address[4] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -582,9 +572,9 @@ library BalanceSnapshotLib {
         address[5] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -597,9 +587,9 @@ library BalanceSnapshotLib {
         address[6] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -612,9 +602,9 @@ library BalanceSnapshotLib {
         address[7] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -627,9 +617,9 @@ library BalanceSnapshotLib {
         address[8] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -642,9 +632,9 @@ library BalanceSnapshotLib {
         address[1] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -657,9 +647,9 @@ library BalanceSnapshotLib {
         address[2] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -672,9 +662,9 @@ library BalanceSnapshotLib {
         address[3] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -687,9 +677,9 @@ library BalanceSnapshotLib {
         address[4] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -702,9 +692,9 @@ library BalanceSnapshotLib {
         address[5] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -717,9 +707,9 @@ library BalanceSnapshotLib {
         address[6] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -732,9 +722,9 @@ library BalanceSnapshotLib {
         address[7] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -747,9 +737,9 @@ library BalanceSnapshotLib {
         address[8] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -762,9 +752,9 @@ library BalanceSnapshotLib {
         address[1] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -777,9 +767,9 @@ library BalanceSnapshotLib {
         address[2] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -792,9 +782,9 @@ library BalanceSnapshotLib {
         address[3] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -807,9 +797,9 @@ library BalanceSnapshotLib {
         address[4] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -822,9 +812,9 @@ library BalanceSnapshotLib {
         address[5] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -837,9 +827,9 @@ library BalanceSnapshotLib {
         address[6] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -852,9 +842,9 @@ library BalanceSnapshotLib {
         address[7] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -867,9 +857,9 @@ library BalanceSnapshotLib {
         address[8] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -882,9 +872,9 @@ library BalanceSnapshotLib {
         address[1] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -897,9 +887,9 @@ library BalanceSnapshotLib {
         address[2] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -912,9 +902,9 @@ library BalanceSnapshotLib {
         address[3] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -927,9 +917,9 @@ library BalanceSnapshotLib {
         address[4] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -942,9 +932,9 @@ library BalanceSnapshotLib {
         address[5] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -957,9 +947,9 @@ library BalanceSnapshotLib {
         address[6] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -972,9 +962,9 @@ library BalanceSnapshotLib {
         address[7] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -987,9 +977,9 @@ library BalanceSnapshotLib {
         address[8] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -1002,9 +992,9 @@ library BalanceSnapshotLib {
         address[1] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -1017,9 +1007,9 @@ library BalanceSnapshotLib {
         address[2] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -1032,9 +1022,9 @@ library BalanceSnapshotLib {
         address[3] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -1047,9 +1037,9 @@ library BalanceSnapshotLib {
         address[4] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -1062,9 +1052,9 @@ library BalanceSnapshotLib {
         address[5] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -1077,9 +1067,9 @@ library BalanceSnapshotLib {
         address[6] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -1092,9 +1082,9 @@ library BalanceSnapshotLib {
         address[7] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
@@ -1107,9 +1097,9 @@ library BalanceSnapshotLib {
         address[8] memory tokens
     ) internal returns (BalanceSnapshot storage) {
         BalanceSnapshot storage snapshot = getBalanceSnapshot();
-        for (uint i = 0; i < owners.length; i++) {
+        for (uint256 i = 0; i < owners.length; i++) {
             address owner = owners[i];
-            for (uint j = 0; j < tokens.length; j++) {
+            for (uint256 j = 0; j < tokens.length; j++) {
                 address token = tokens[j];
                 snapshot.balance[owner][token] = IERC20(token).balanceOf(owner);
             }
