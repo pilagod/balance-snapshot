@@ -50,4 +50,4 @@ contract ContractTest is Test {
 }
 ```
 
-Please refer to [BalanceSnapshot.t.sol](https://github.com/pilagod/balance-snapshot/test/BalanceSnapshot.t.sol) for more examples.
+Please refer to [BalanceSnapshot.t.sol](https://github.com/pilagod/balance-snapshot/blob/main/test/BalanceSnapshot.t.sol) for more examples.
