@@ -10,6 +10,8 @@ $ forge install pilagod/balance-snapshot
 
 ## Usage
 
+This library supports both ETH and token balance snapshot. Let's look at a quick example:
+
 ```solidity
 import { Test } from "forge-std/Test.sol";
 import { ERC20 } from "openzeppelin/token/ERC20/ERC20.sol";
@@ -28,9 +30,10 @@ contract ContractTest is Test {
             [token]
         );
 
-        // Do test actions...
+        // Increase owner token balance by 100
+        deal(token, owner, 100);
 
-        // Assert owner token balance increases 100 after test actions
+        // Assert owner token balance is increased by 100 after snapshot
         snapshot.assertIncrEq(owner, token, 100);
     }
 
@@ -42,12 +45,13 @@ contract ContractTest is Test {
             [BalanceSnapshotLib.ETH]
         );
 
-        // Do test actions...
+        // Increase owner ETH balance by 100
+        deal(owner, 100);
 
-        // Assert owner ETH balance increases 100 after test actions
+        // Assert owner ETH balance is increased by 100 after snapshot
         snapshot.assertIncrEq(owner, BalanceSnapshotLib.ETH, 100);
     }
 }
 ```
 
-Please refer to [BalanceSnapshot.t.sol](https://github.com/pilagod/balance-snapshot/blob/main/test/BalanceSnapshot.t.sol) for more examples.
+Please refer to [BalanceSnapshot.t.sol](https://github.com/pilagod/balance-snapshot/blob/main/test/BalanceSnapshot.t.sol) for more usages.

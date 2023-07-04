@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import { IERC20 } from "openzeppelin/token/ERC20/IERC20.sol";
-import { Strings } from "openzeppelin/utils/Strings.sol";
+interface IBalanceable {
+    function balanceOf(address owner) external view returns (uint256);
+}
 
 struct BalanceSnapshot {
     mapping(address => mapping(address => uint256)) balance;
@@ -17,7 +18,7 @@ library BalanceSnapshotLib {
         keccak256("balance.snapshot");
 
     function getBalanceSnapshot()
-        internal
+        private
         pure
         returns (BalanceSnapshot storage snapshot)
     {
@@ -25,6 +26,29 @@ library BalanceSnapshotLib {
         assembly {
             snapshot.slot := position
         }
+    }
+
+    /**
+     * @dev https://stackoverflow.com/a/65715388
+     */
+    function toString(uint256 v) private pure returns (string memory) {
+        if (v == 0) {
+            return "0";
+        }
+        uint256 j = v;
+        uint256 len;
+        while (j != 0) {
+            len++;
+            j /= 10;
+        }
+        bytes memory bstr = new bytes(len);
+        uint256 k = len;
+        j = v;
+        while (j != 0) {
+            bstr[--k] = bytes1(uint8(48 + j % 10));
+            j /= 10;
+        }
+        return string(bstr);
     }
 
     function getBalance(
@@ -42,7 +66,7 @@ library BalanceSnapshotLib {
         if (token == ETH) {
             return owner.balance;
         }
-        return IERC20(token).balanceOf(owner);
+        return IBalanceable(token).balanceOf(owner);
     }
 
     function assertIncrEq(
@@ -56,9 +80,7 @@ library BalanceSnapshotLib {
         uint256 diff = ba - bb;
         require(
             diff == change,
-            string.concat(
-                Strings.toString(diff), "!=", Strings.toString(change)
-            )
+            string.concat(toString(diff), "!=", toString(change))
         );
     }
 
@@ -72,10 +94,7 @@ library BalanceSnapshotLib {
         uint256 ba = getBalance(owner, token);
         uint256 diff = ba - bb;
         require(
-            diff > change,
-            string.concat(
-                Strings.toString(diff), "<=", Strings.toString(change)
-            )
+            diff > change, string.concat(toString(diff), "<=", toString(change))
         );
     }
 
@@ -89,8 +108,7 @@ library BalanceSnapshotLib {
         uint256 ba = getBalance(owner, token);
         uint256 diff = ba - bb;
         require(
-            diff < change,
-            string.concat(Strings.toString(diff), ">", Strings.toString(change))
+            diff < change, string.concat(toString(diff), ">", toString(change))
         );
     }
 
@@ -105,9 +123,7 @@ library BalanceSnapshotLib {
         uint256 diff = bb - ba;
         require(
             diff == change,
-            string.concat(
-                Strings.toString(diff), "!=", Strings.toString(change)
-            )
+            string.concat(toString(diff), "!=", toString(change))
         );
     }
 
@@ -121,10 +137,7 @@ library BalanceSnapshotLib {
         uint256 ba = getBalance(owner, token);
         uint256 diff = bb - ba;
         require(
-            diff > change,
-            string.concat(
-                Strings.toString(diff), "<=", Strings.toString(change)
-            )
+            diff > change, string.concat(toString(diff), "<=", toString(change))
         );
     }
 
@@ -138,10 +151,7 @@ library BalanceSnapshotLib {
         uint256 ba = getBalance(owner, token);
         uint256 diff = bb - ba;
         require(
-            diff < change,
-            string.concat(
-                Strings.toString(diff), ">=", Strings.toString(change)
-            )
+            diff < change, string.concat(toString(diff), ">=", toString(change))
         );
     }
 

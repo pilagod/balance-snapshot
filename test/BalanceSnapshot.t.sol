@@ -2,18 +2,19 @@
 pragma solidity ^0.8.0;
 
 import { Test } from "forge-std/Test.sol";
-import { ERC20 } from "openzeppelin/token/ERC20/ERC20.sol";
 
 import {
     BalanceSnapshot,
     BalanceSnapshotLib
 } from "balance-snapshot/BalanceSnapshot.sol";
 
+import { ERC20 } from "./utils/ERC20.sol";
+
 contract BalanceSnapshotTest is Test {
     using BalanceSnapshotLib for BalanceSnapshot;
 
     address owner = address(1);
-    address token = address(new ERC20("TKN", "TKN"));
+    address token = address(new ERC20());
 
     function testSnapshotTokenBalanceIncrement() public {
         BalanceSnapshot storage snapshot =
