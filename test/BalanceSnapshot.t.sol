@@ -39,6 +39,30 @@ contract BalanceSnapshotTest is Test {
         snapshot.assertDecrLt(owner, token, 101);
     }
 
+    function testSnapshotETHBalanceIncrement() public {
+        BalanceSnapshot storage snapshot =
+            BalanceSnapshotLib.take([owner], [BalanceSnapshotLib.ETH]);
+
+        deal(owner, 100);
+
+        snapshot.assertIncrGt(owner, BalanceSnapshotLib.ETH, 99);
+        snapshot.assertIncrEq(owner, BalanceSnapshotLib.ETH, 100);
+        snapshot.assertIncrLt(owner, BalanceSnapshotLib.ETH, 101);
+    }
+
+    function testSnapshotETHBalanceDecrement() public {
+        deal(owner, 200);
+
+        BalanceSnapshot storage snapshot =
+            BalanceSnapshotLib.take([owner], [BalanceSnapshotLib.ETH]);
+
+        deal(owner, 100);
+
+        snapshot.assertDecrGt(owner, BalanceSnapshotLib.ETH, 99);
+        snapshot.assertDecrEq(owner, BalanceSnapshotLib.ETH, 100);
+        snapshot.assertDecrLt(owner, BalanceSnapshotLib.ETH, 101);
+    }
+
     function testSnapshotIsolation() public {
         BalanceSnapshot storage snapshot =
             BalanceSnapshotLib.take([owner], [token]);
