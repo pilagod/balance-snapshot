@@ -22,34 +22,51 @@ contract ContractTest is Test {
     using BalanceSnapshotLib for BalanceSnapshot;
 
     function testToken() public {
-        address owner = address(1);
         address token = address(new ERC20("TKN", "TKN"));
 
+        address sender = address(1);
+        address recipient = address(2);
+
+        // Deal 100 token to sender
+        deal(token, sender, 100);
+
         BalanceSnapshot storage snapshot = BalanceSnapshotLib.take(
-            [owner],
-            [token]
+            [sender, recipient],
+            [address(token)]
         );
 
-        // Increase owner token balance by 100
-        deal(token, owner, 100);
+        // Transfer 100 token from sender to recipient
+        vm.prank(sender); 
+        ERC20(token).transfer(recipient, 100);
 
-        // Assert owner token balance is increased by 100 after snapshot
-        snapshot.assertIncrEq(owner, token, 100);
+        // Sender token balance should decrease by 100
+        snapshot.assertDecrEq(sender, token, 100);
+
+        // Recipient token balance should increase by 100
+        snapshot.assertIncrEq(recipient, token, 100);
     }
 
     function testETH() public {
-        address owner = address(1);
+        address sender = address(1);
+        address recipient = address(2);
+
+        // Deal 100 wei to sender
+        deal(sender, 100);
 
         BalanceSnapshot storage snapshot = BalanceSnapshotLib.take(
-            [owner],
+            [sender, recipient],
             [BalanceSnapshotLib.ETH]
         );
 
-        // Increase owner ETH balance by 100
-        deal(owner, 100);
+        // Transfer 100 wei from sender to recipient
+        vm.prank(sender);
+        payable(recipient).transfer(100);
 
-        // Assert owner ETH balance is increased by 100 after snapshot
-        snapshot.assertIncrEq(owner, BalanceSnapshotLib.ETH, 100);
+        // Sender ETH balance should decrease by 100 wei
+        snapshot.assertDecrEq(sender, BalanceSnapshotLib.ETH, 100);
+
+        // Recipient ETH balance should increase by 100 wei
+        snapshot.assertIncrEq(recipient, BalanceSnapshotLib.ETH, 100);
     }
 }
 ```
