@@ -28,9 +28,7 @@ library BalanceSnapshotLib {
         }
     }
 
-    /**
-     * @dev https://stackoverflow.com/a/65715388
-     */
+    /// @dev https://stackoverflow.com/a/65715388
     function toString(uint256 v) private pure returns (string memory) {
         if (v == 0) {
             return "0";
@@ -51,6 +49,7 @@ library BalanceSnapshotLib {
         return string(bstr);
     }
 
+    /// @notice Get owner's token balance from snapshot.
     function getBalance(
         BalanceSnapshot storage snapshot,
         address owner,
@@ -59,6 +58,7 @@ library BalanceSnapshotLib {
         return snapshot.balance[owner][token];
     }
 
+    /// @notice Get owner's token balance on chain.
     function getBalance(
         address owner,
         address token
@@ -69,6 +69,7 @@ library BalanceSnapshotLib {
         return IBalanceable(token).balanceOf(owner);
     }
 
+    /// @notice Assert owner's token balance increases by exact `change` amount.
     function assertIncrEq(
         BalanceSnapshot storage snapshot,
         address owner,
@@ -84,6 +85,7 @@ library BalanceSnapshotLib {
         );
     }
 
+    /// @notice Assert owner's token balance increases by greater than `change` amount.
     function assertIncrGt(
         BalanceSnapshot storage snapshot,
         address owner,
@@ -98,6 +100,7 @@ library BalanceSnapshotLib {
         );
     }
 
+    /// @notice Assert owner's token balance increases by less than `change` amount.
     function assertIncrLt(
         BalanceSnapshot storage snapshot,
         address owner,
@@ -112,6 +115,7 @@ library BalanceSnapshotLib {
         );
     }
 
+    /// @notice Assert owner's token balance decreases by exact `change` amount.
     function assertDecrEq(
         BalanceSnapshot storage snapshot,
         address owner,
@@ -127,6 +131,7 @@ library BalanceSnapshotLib {
         );
     }
 
+    /// @notice Assert owner's token balance decreases by greater than `change` amount.
     function assertDecrGt(
         BalanceSnapshot storage snapshot,
         address owner,
@@ -141,6 +146,7 @@ library BalanceSnapshotLib {
         );
     }
 
+    /// @notice Assert owner's token balance decreases by less than `change` amount.
     function assertDecrLt(
         BalanceSnapshot storage snapshot,
         address owner,
@@ -155,6 +161,15 @@ library BalanceSnapshotLib {
         );
     }
 
+    /// @notice Take owners' token balance snapshot.
+    /// @dev It supports 8 owners * 8 tokens by overloading (64 cases in total).
+    /// Developer can easily construct snapshot owners and tokens by array syntax, like:
+    ///
+    ///      BalanceSnapshotLib.take(
+    ///          [o1, o2, o3],
+    ///          [t1, t2]
+    ///      );
+    ///
     function take(
         address[] memory owners,
         address[] memory tokens

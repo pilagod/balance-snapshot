@@ -72,3 +72,77 @@ contract ContractTest is Test {
 ```
 
 Please refer to [BalanceSnapshot.t.sol](https://github.com/pilagod/balance-snapshot/blob/main/test/BalanceSnapshot.t.sol) for more usages.
+
+## API
+
+```solidity
+library BalanceSnapshotLib {
+    /// @notice Take owners' token balance snapshot.
+    /// @dev It supports 8 owners * 8 tokens by overloading (64 cases in total).
+    /// Developer can easily construct snapshot owners and tokens by array syntax, like:
+    ///
+    ///      BalanceSnapshotLib.take(
+    ///          [o1, o2, o3],
+    ///          [t1, t2]
+    ///      );
+    ///
+    function take(
+        address[{1-8}] memory owners,
+        address[{1-8}] memory tokens
+    ) internal returns (BalanceSnapshot storage);
+
+    /// @notice Assert owner's token balance increases by exact `change` amount.
+    function assertIncrEq(
+        BalanceSnapshot storage snapshot,
+        address owner,
+        address token,
+        uint256 change
+    ) internal view;
+
+    /// @notice Assert owner's token balance increases by greater than `change` amount.
+    function assertIncrGt(
+        BalanceSnapshot storage snapshot,
+        address owner,
+        address token,
+        uint256 change
+    ) internal view;
+
+    /// @notice Assert owner's token balance increases by less than `change` amount.
+    function assertIncrLt(
+        BalanceSnapshot storage snapshot,
+        address owner,
+        address token,
+        uint256 change
+    ) internal view;
+
+    /// @notice Assert owner's token balance decreases by exact `change` amount.
+    function assertDecrEq(
+        BalanceSnapshot storage snapshot,
+        address owner,
+        address token,
+        uint256 change
+    ) internal view;
+
+    /// @notice Assert owner's token balance decreases by greater than `change` amount.
+    function assertDecrGt(
+        BalanceSnapshot storage snapshot,
+        address owner,
+        address token,
+        uint256 change
+    ) internal view;
+
+    /// @notice Assert owner's token balance decreases by less than `change` amount.
+    function assertDecrLt(
+        BalanceSnapshot storage snapshot,
+        address owner,
+        address token,
+        uint256 change
+    ) internal view;
+}
+```
+
+## License
+
+© Cyan Ho (pilagod), 2023-NOW
+
+Released under the [MIT License](https://github.com/pilagod/balance-snapshot/blob/main/LICENSE)
