@@ -21,7 +21,7 @@ import { BalanceSnapshot, BalanceSnapshotLib } from "balance-snapshot/BalanceSna
 contract ContractTest is Test {
     using BalanceSnapshotLib for BalanceSnapshot;
 
-    function testToken() public {
+    function testTransferToken() public {
         address token = address(new ERC20("TKN", "TKN"));
 
         address sender = address(1);
@@ -46,7 +46,7 @@ contract ContractTest is Test {
         snapshot.assertIncrEq(recipient, token, 100);
     }
 
-    function testETH() public {
+    function testTransferETH() public {
         address sender = address(1);
         address recipient = address(2);
 
