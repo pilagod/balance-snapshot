@@ -1,4 +1,4 @@
-# balance-snapshot ![Build Status](https://github.com/pilagod/balance-snapshot/actions/workflows/test.yml/badge.svg)
+# balance-snapshot [![Mentioned in Awesome Foundry](https://awesome.re/mentioned-badge.svg)](https://github.com/crisgarner/awesome-foundry) ![Build Status](https://github.com/pilagod/balance-snapshot/actions/workflows/test.yml/badge.svg)
 
 A Solidity library to improve balance change check in Foundry tests.
 
