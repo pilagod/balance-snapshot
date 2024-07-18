@@ -111,7 +111,7 @@ library BalanceSnapshotLib {
         uint256 ba = getBalance(owner, token);
         uint256 diff = ba - bb;
         require(
-            diff < change, string.concat(toString(diff), ">", toString(change))
+            diff < change, string.concat(toString(diff), ">=", toString(change))
         );
     }
 
